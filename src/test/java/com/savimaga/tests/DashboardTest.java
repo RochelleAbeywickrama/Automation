@@ -25,7 +25,6 @@ public class DashboardTest extends BaseTest{
 			Thread.sleep(2000);
 			customerPage = dashboardPage.clickOnNewCustomer();
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
