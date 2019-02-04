@@ -18,42 +18,42 @@ public class ConfigFileReader {
  String propertyFilePath= "./src/test/resources/config.cfg";
  
  try {
- reader = new BufferedReader(new FileReader(propertyFilePath));
- properties = new Properties();
- try {
- properties.load(reader);
- reader.close();
- } catch (IOException e) {
- e.printStackTrace();
- }
- } catch (FileNotFoundException e) {
- e.printStackTrace();
- throw new RuntimeException("Configuration.properties not found at " + propertyFilePath);
- } 
- }
- 
- public String getDriverPath(){
- String driverPath = properties.getProperty("driverPath");
- if(driverPath!= null) return driverPath;
- else throw new RuntimeException("driverPath not specified in the Configuration.properties file."); 
- }
- 
- public long getImplicitlyWait() { 
- String implicitlyWait = properties.getProperty("implicitlyWait");
- if(implicitlyWait != null) return Long.parseLong(implicitlyWait);
- else throw new RuntimeException("implicitlyWait not specified in the Configuration.properties file."); 
- }
- 
- public String getApplicationUrl() {
- String url = properties.getProperty("url");
- if(url != null) return url;
- else throw new RuntimeException("url not specified in the Configuration.properties file.");
- }
- 
- public String getHeadlessStatus() {
-	 String headless = properties.getProperty("headless");
-	 if(headless != null) return headless;
-	 else throw new RuntimeException("headless status is not specified in the Configuration.properties file.");
-	 }
+		reader = new BufferedReader(new FileReader(propertyFilePath));
+		properties = new Properties();
+		try {
+			properties.load(reader);
+			reader.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	} catch (FileNotFoundException e) {
+		e.printStackTrace();
+		throw new RuntimeException("Configuration.properties not found at " + propertyFilePath);
+	}
+	}
+
+	public String getDriverPath() {
+		String driverPath = properties.getProperty("driverPath");
+		if (driverPath != null) return driverPath;
+		else throw new RuntimeException("driverPath not specified in the Configuration.properties file.");
+	}
+
+	public long getImplicitlyWait() {
+		String implicitlyWait = properties.getProperty("implicitlyWait");
+		if (implicitlyWait != null) return Long.parseLong(implicitlyWait);
+		else throw new RuntimeException("implicitlyWait not specified in the Configuration.properties file.");
+	}
+
+	public String getApplicationUrl() {
+		String url = properties.getProperty("url");
+		if (url != null) return url;
+		else throw new RuntimeException("url not specified in the Configuration.properties file.");
+	}
+
+	public String getHeadlessStatus() {
+		String headless = properties.getProperty("headless");
+		if (headless != null) return headless;
+		else throw new RuntimeException("headless status is not specified in the Configuration.properties file.");
+	}
  
 }
