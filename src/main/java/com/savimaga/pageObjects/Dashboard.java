@@ -12,22 +12,26 @@ public class Dashboard extends BasePageObjects{
 		super(driver);
 	}
 
-	private static WebElement element = null;
 	
 	/* Objects initialization */
 	public static WebElement elelblDashboard(WebDriver driver){
-	    element = driver.findElement(By.xpath("//a[text()='Dashboard ']"));
-	    return element;
+	    return driver.findElement(By.xpath("//span[text()='Dashboard']"));
 	 }
 	
 	public static WebElement elelblCustomer(WebDriver driver){
-	    element = driver.findElement(By.xpath("//a//span[text()='Customer']"));
-	    return element;
+	   	return driver.findElement(By.xpath("//a//span[text()='Customer']"));
+	 }
+	
+	public static WebElement elelblLoan(WebDriver driver){
+		return driver.findElement(By.xpath("//a//span[text()='Loan']"));
 	 }
 
 	public static WebElement elelblNewCustomer(WebDriver driver){
-		element = driver.findElement(By.xpath("//a//span[text()='Customer']//following::a[text()='New Customer']"));
-		return element;
+		return driver.findElement(By.xpath("//a//span[text()='Customer']//following::a[text()='New Customer']"));
+	}
+	
+	public static WebElement elelblApplyLoan(WebDriver driver){
+		return driver.findElement(By.xpath("//a//span[text()='Loan']//following::a[text()='Apply Loan']"));
 	}
 	
 	/* methods */
@@ -41,5 +45,10 @@ public class Dashboard extends BasePageObjects{
 		return new Customer(driver);
 	}
 	
+	public Loan clickOnApplyLoan(){
+		elelblLoan(driver).click();
+		elelblApplyLoan(driver).click();
+		return new Loan(driver);
+	}
 	
 }
